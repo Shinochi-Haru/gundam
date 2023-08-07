@@ -65,11 +65,11 @@ public class MovingController : MonoBehaviour
         {
             CameraRotation(cam, rotX, rotY);                 // WebGL での右クリック回転が無効な場合、常にマウスの移動量に基づいてカメラを回転
         }
-        // ジャンプ
-        if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
-        {
-            _rb.AddForce(Vector3.up * _jumpPower, ForceMode.Impulse);
-        }
+        //// ジャンプ
+        //if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    _rb.AddForce(Vector3.up * _jumpPower, ForceMode.Impulse);
+        //}
     }
     void CameraRotation(GameObject cam, float rotX, float rotY)
     {
