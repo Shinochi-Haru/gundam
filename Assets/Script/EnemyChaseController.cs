@@ -5,10 +5,12 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class EnemyChaseController : StateMachineBehaviour
 {
-    [SerializeField] Transform _player; // プレイヤーのTransformコンポーネント
+    private Transform _player; // プレイヤーのTransformコンポーネント
     [SerializeField] float _chaseSpeed = 0;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        // プレイヤーオブジェクトを検索して_player変数に代入
+        _player = GameObject.FindGameObjectWithTag("Player").transform;
         // プレイヤーの方向を向く
         Vector3 direction = (_player.position - animator.transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0f, direction.z));
