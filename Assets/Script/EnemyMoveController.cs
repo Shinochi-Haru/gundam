@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class EnemyMoveController : StateMachineBehaviour
 {
@@ -10,6 +11,8 @@ public class EnemyMoveController : StateMachineBehaviour
     [SerializeField] private float moveTimer = 0f; // 移動の経過時間
     [SerializeField]private float moveDuration = 3f; // 方向転換の間隔
     [SerializeField]private float _walkSpeed;
+    [SerializeField] private Transform _player; // プレイヤーのTransformコンポーネント
+    [SerializeField] float _chaseRadius = 10f; // 追いかける範囲
 
     // その他の変数や初期化処理を追加する場合はここに記述
 
@@ -20,6 +23,9 @@ public class EnemyMoveController : StateMachineBehaviour
 
         // ランダムな目的地を設定
         SetRandomDestination();
+
+        // プレイヤーオブジェクトを検索して _player 変数に代入
+        _player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -42,11 +48,23 @@ public class EnemyMoveController : StateMachineBehaviour
             SetRandomDestination();
             moveTimer = 0f;
         }
+        // 自身の位置とプレイヤーの位置の距離を計算
+        float distanceToPlayer = Vector3.Distance(animator.transform.position, _player.position);
+
+        if (distanceToPlayer <= _chaseRadius)
+        {
+            animator.SetBool("Chase", true); // 一定の範囲内にいる場合、Chaseステートに遷移するフラグを設定
+        }
+        else
+        {
+            animator.SetBool("Chase", false); // 範囲外にいる場合、Chaseステートに遷移するフラグを解除
+        }
     }
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        // 状態終了時の処理が必要な場合はここに記述
+        
+
     }
 
     private void SetRandomDestination()
