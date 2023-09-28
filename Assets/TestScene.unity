@@ -137,7 +137,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 249846263}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 5917c0e93d180a842b61d1ebc62a195c, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 0687e952c445a044fa6c9fcb474c7e36, type: 3}
   m_Controller: {fileID: 9100000, guid: e04f63eb55bbdd5419c1df7f387a66c9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -162,7 +162,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!1 &1026221496
 GameObject:
@@ -359,19 +359,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0687e952c445a044fa6c9fcb474c7e36, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0687e952c445a044fa6c9fcb474c7e36, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0687e952c445a044fa6c9fcb474c7e36, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0687e952c445a044fa6c9fcb474c7e36, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -63.139732
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0687e952c445a044fa6c9fcb474c7e36, type: 3}
       propertyPath: m_LocalPosition.y
@@ -379,7 +379,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0687e952c445a044fa6c9fcb474c7e36, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -27.661795
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0687e952c445a044fa6c9fcb474c7e36, type: 3}
       propertyPath: m_LocalRotation.w
