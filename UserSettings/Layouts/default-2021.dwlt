@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 772.8
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Console
   m_RootView: {fileID: 9}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 55
+  controlID: 87
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 87
+  controlID: 119
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -302,7 +302,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 140
+  controlID: 86
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -328,7 +328,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 141
+  controlID: 130
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -572,9 +572,9 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: e04f63eb55bbdd5419c1df7f387a66c9, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: 13833d2e476ef2042b885efb1349c57e, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: -6206432598753906172, guid: e04f63eb55bbdd5419c1df7f387a66c9, type: 2}
+  - m_Target: {fileID: 173457572206958872, guid: 13833d2e476ef2042b885efb1349c57e, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -684,21 +684,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/GundumUnity
+    - Assets
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/GundumUnity
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\vantan\Gundam
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: aa520000
-    m_LastClickedID: 21162
+    m_SelectedIDs: 98520000
+    m_LastClickedID: 21144
     m_ExpandedIDs: 0000000098520000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -854,10 +854,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 6e4c0000
+      scrollPos: {x: 0, y: 1397.2}
+      m_SelectedIDs: e2f6ffff
       m_LastClickedID: 0
-      m_ExpandedIDs: 1cfbffff
+      m_ExpandedIDs: 38f8ffff74f8ffff1cfbffff584c0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1106,9 +1106,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -38.213562, y: -44.589863, z: -116.116516}
+    m_Target: {x: 171.43768, y: -96.22019, z: 175.49771}
     speed: 2
-    m_Value: {x: -38.213562, y: -44.589863, z: -116.116516}
+    m_Value: {x: 171.43768, y: -96.22019, z: 175.49771}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1155,13 +1155,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.01143903, y: 0.9880124, z: -0.09096553, w: -0.12426568}
+    m_Target: {x: -0.15128228, y: -0.3764391, z: 0.06245514, w: -0.9118445}
     speed: 2
-    m_Value: {x: -0.011486634, y: 0.98805225, z: -0.092464045, w: -0.122765444}
+    m_Value: {x: -0.15128578, y: -0.3764478, z: 0.062456585, w: -0.9118656}
   m_Size:
-    m_Target: 114.25928
+    m_Target: 236.97049
     speed: 2
-    m_Value: 119.64322
+    m_Value: 236.97049
   m_Ortho:
     m_Target: 0
     speed: 2
