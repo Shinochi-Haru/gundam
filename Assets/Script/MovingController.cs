@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class MovingController : MonoBehaviour
@@ -15,6 +16,8 @@ public class MovingController : MonoBehaviour
     [SerializeField] public GameObject cam;
     float rotX, rotY; 
     [SerializeField] public float sensitivity = 30.0f;
+    [SerializeField] Transform verRot;//①縦の視点移動の変数(カメラに合わせる)
+    [SerializeField] Transform horRot;//①横の視点移動の変数(プレイヤーに合わせる)
 
     void Start()
     {
@@ -30,6 +33,10 @@ public class MovingController : MonoBehaviour
     {
         moveFB = Input.GetAxis("Horizontal") * _moveSpeed;      // 水平方向（左右）の入力に基づいて移動量を計算
         moveLR = Input.GetAxis("Vertical") * _moveSpeed;        // 垂直方向（前後）の入力に基づいて移動量を計算
+        float X_Rotation = Input.GetAxis("Mouse X");//①X_RotationにマウスのX軸の動きを代入する
+        float Y_Rotation = Input.GetAxis("Mouse Y");//①Y_RotationにマウスのY軸の動きを代入する
+        horRot.transform.Rotate(new Vector3(0, X_Rotation * 2, 0));//①プレイヤーのY軸の回転をX_Rotationに合わせる
+        verRot.transform.Rotate(-Y_Rotation * 2, 0, 0);//①カメラのX軸の回転をY_Rotationに合わせる
     }
     private void FixedUpdate()
     {
