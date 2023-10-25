@@ -54,17 +54,17 @@ public class EnemyMoveController : StateMachineBehaviour
         if (distanceToPlayer <= _chaseRadius)
         {
             animator.SetBool("Chase", true); // 一定の範囲内にいる場合、Chaseステートに遷移するフラグを設定
-        }
-        else
-        {
-            animator.SetBool("Chase", false); // 範囲外にいる場合、Chaseステートに遷移するフラグを解除
-        }
+        } 
     }
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
 
+
+        //if()
+        //{
+        //    animator.SetBool("Chase", false); // 範囲外にいる場合、Chaseステートに遷移するフラグを解除
+        //}
     }
 
     private void SetRandomDestination()

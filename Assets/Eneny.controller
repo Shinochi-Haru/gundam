@@ -86,7 +86,7 @@ MonoBehaviour:
   moveTimer: 10
   moveDuration: 3
   _walkSpeed: 2
-  _player: {fileID: 0}
+  _player: {fileID: 8981986861558555135, guid: 009cb0a6806d47a40992a05451425749, type: 3}
   _chaseRadius: 10
 --- !u!1101 &-2088875191972656222
 AnimatorStateTransition:
@@ -147,6 +147,32 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+--- !u!1102 &140851123778443175
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: New State
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 0}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1107 &173457572206958872
 AnimatorStateMachine:
   serializedVersion: 6
@@ -165,6 +191,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: -4653371213617763121}
     m_Position: {x: 540, y: -40, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 140851123778443175}
+    m_Position: {x: 333.23962, y: 341.6957, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

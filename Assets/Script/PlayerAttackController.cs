@@ -16,43 +16,27 @@ public class PlayerAttackController : MonoBehaviour
     [SerializeField] float _widthpower = 0;
     /// <summary> ”š”j‚Ì‰e‹¿‚ğó‚¯‚È‚¢/// </summary>
     [SerializeField] int _wallLayer = 0;
-    private RaycastHit hit;//‡BRay‚ª‰½‚©‚É“–‚½‚Á‚½‚Ìî•ñ
-    public GameObject Muzzle;//‡BRay‚ğ”­Ë‚·‚éêŠ
-    private int distance = 10000;//‡BRay‚ğ”ò‚Î‚·‹——£
     void Start()
     {
         _line = GetComponent<LineRenderer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-    //    Ray ray = new(_muzzle.position, this.transform.forward);   // muzzle ‚©‚ç³–Ê‚É ray ‚ğ”ò‚Î‚·
+        Camera mainCamera = Camera.main;
+        Vector3 cameraPosition = mainCamera.transform.position;
+        Vector3 cameraForward = mainCamera.transform.forward;
 
-    //    if (Physics.Raycast(ray, out RaycastHit hit, _maxFireDistance))
-    //    {
-    //        _rayCastHitPosition = hit.point;
-    //        DrawLaser(_rayCastHitPosition);
-    //        if (Input.GetButtonDown("Fire1"))
-    //        {
-    //            Fire1(_rayCastHitPosition);
+        //Ray ray = new(_muzzle.position, this.transform.forward);   // muzzle ‚©‚ç³–Ê‚É ray ‚ğ”ò‚Î‚·
+        Ray ray = new Ray(cameraPosition, cameraForward);
 
-    //        }
-    //    }
-
-        if (Input.GetMouseButton(0))//‡Bƒ}ƒEƒX‚ª¶ƒNƒŠƒbƒN‚³‚ê‚½‚ç 
+        if (Physics.Raycast(ray, out RaycastHit hit, _maxFireDistance))
         {
-            Ray ray = new Ray(Muzzle.transform.position, Muzzle.transform.forward);//‡BRay‚ğMuzzle‚ÌêŠ‚©‚ç‘O•û‚É”ò‚Î‚·
-            Debug.DrawRay(ray.origin, ray.direction, Color.red);//‡BRay‚ğÔF‚Å•\¦‚³‚¹‚é
-
-            if (Physics.Raycast(ray, out hit, distance))
-            {//‡BRay‚ªdistance‚Ì”ÍˆÍ“à‚Å‰½‚©‚É“–‚½‚Á‚½‚É
-
-                if (hit.collider.tag == "Enemy")//‡B‚à‚µ“–‚½‚Á‚½•¨‚Ìƒ^ƒO‚ªEnemy‚¾‚Á‚½‚ç 
-                {
-                    Destroy(hit.collider.gameObject);//‡B“–‚½‚Á‚½•¨‚ğÁ‹‚µ‚ÄA
-                    //Instantiate(Explosion.gameObject, hit.collider.gameObject.transform.position, gameObject.transform.rotation);//‡BRay‚ª“–‚½‚Á‚½êŠ‚É”š”­‚ğ¶¬‚·‚é
-                }
+            _rayCastHitPosition = hit.point;
+            DrawLaser(_rayCastHitPosition);
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Fire1(_rayCastHitPosition);
             }
         }
     }
