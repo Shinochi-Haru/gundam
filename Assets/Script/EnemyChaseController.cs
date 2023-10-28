@@ -31,12 +31,6 @@ public class EnemyChaseController : StateMachineBehaviour
             animator.transform.position = Vector3.MoveTowards(animator.transform.position, _player.position, Time.deltaTime * _chaseSpeed);
         }
 
-        //// スペースキーが押されたら呼び寄せステートに遷移
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    animator.SetBool("Call", true);
-        //}
-
         if (distanceToPlayer > _chaseRadius)
         {
             animator.SetBool("Chase", false); // 範囲外に出た場合、Chaseステートに遷移するフラグを解除

@@ -6,7 +6,7 @@ using UnityEngine;
 public class MovingController : MonoBehaviour
 {
     [SerializeField] float _moveSpeed = 5f;
-    [SerializeField] float _turnSpeed = 10f;
+    //[SerializeField] float _turnSpeed = 10f;
     [SerializeField] float _jumpPower = 10f;
     [SerializeField] float _gravity = 20f;
     float moveFB, moveLR;

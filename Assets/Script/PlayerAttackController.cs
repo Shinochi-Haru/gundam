@@ -1,9 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class PlayerAttackController : MonoBehaviour
 {
+    private enum State
+    {
+        LongRangeAtttck, // 遠距離攻撃
+        CloseRangeAttack // 近距離攻撃
+    }
     LineRenderer _line = default;
     [SerializeField] Transform _muzzle = null;
     Vector3 _rayCastHitPosition;
@@ -16,6 +22,10 @@ public class PlayerAttackController : MonoBehaviour
     [SerializeField] float _widthpower = 0;
     /// <summary> 爆破の影響を受けない/// </summary>
     [SerializeField] int _wallLayer = 0;
+    private State _state = State.CloseRangeAttack;
+    [SerializeField] Transform _closeRangeMazzle = null;
+    [SerializeField] float _maxCloseDistance = 10f;
+
     void Start()
     {
         _line = GetComponent<LineRenderer>();
@@ -23,11 +33,33 @@ public class PlayerAttackController : MonoBehaviour
 
     void Update()
     {
+        switch (_state)
+        {
+            case State.LongRangeAtttck: // 遠距離攻撃
+                UpdateLongRangeState();
+                break;
+            case State.CloseRangeAttack: //　近距離攻撃
+                UpdatCloseRangeState();
+                break;
+        }
+    }
+
+    void UpdateLongRangeState()
+    {
+        LongRangeAtttckRay();
+    }
+
+    void UpdatCloseRangeState()
+    {
+        CloseRangeAttackRay();
+    }
+    void LongRangeAtttckRay()
+    {
         Camera mainCamera = Camera.main;
         Vector3 cameraPosition = mainCamera.transform.position;
         Vector3 cameraForward = mainCamera.transform.forward;
 
-        //Ray ray = new(_muzzle.position, this.transform.forward);   // muzzle から正面に ray を飛ばす
+        // カメラの中央 から正面に ray を飛ばす
         Ray ray = new Ray(cameraPosition, cameraForward);
 
         if (Physics.Raycast(ray, out RaycastHit hit, _maxFireDistance))
@@ -36,12 +68,11 @@ public class PlayerAttackController : MonoBehaviour
             DrawLaser(_rayCastHitPosition);
             if (Input.GetButtonDown("Fire1"))
             {
-                Fire1(_rayCastHitPosition);
+                LongRangeFire1(_rayCastHitPosition);
             }
         }
     }
-
-    void Fire1(Vector3 _rayCastHitPosition)
+    void LongRangeFire1(Vector3 _rayCastHitPosition)
     {
         //_explosionObject.Explode(_rayCastHitPosition);
         Collider[] colliders = Physics.OverlapSphere(_rayCastHitPosition, radius);
@@ -58,5 +89,19 @@ public class PlayerAttackController : MonoBehaviour
         Vector3[] positions = { _muzzle.position, destination };   //レーザーの始点は常に Muzzle にする
         _line.positionCount = positions.Length;   // Lineを終点と始点のみに制限する
         _line.SetPositions(positions);
+    }
+
+    void CloseRangeAttackRay()
+    {
+        Vector3 origin = _closeRangeMazzle.position;
+        Vector3 direction = _closeRangeMazzle.up;
+        Ray ray = new Ray(origin, direction);
+
+        _line.SetPosition(0, origin);
+        _line.SetPosition(1, origin + direction * _maxCloseDistance); // 適当な長さに設定
+    }
+    void CloseRangeFire1()
+    {
+
     }
 }
