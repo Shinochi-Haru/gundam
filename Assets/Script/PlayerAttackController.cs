@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditorInternal;
@@ -25,6 +26,8 @@ public class PlayerAttackController : MonoBehaviour
     private State _state = State.CloseRangeAttack;
     [SerializeField] Transform _closeRangeMazzle = null;
     [SerializeField] float _maxCloseDistance = 10f;
+    bool isRotating = false;
+    [SerializeField]  private GameObject targetObject;
 
     void Start()
     {
@@ -52,6 +55,7 @@ public class PlayerAttackController : MonoBehaviour
     void UpdatCloseRangeState()
     {
         CloseRangeAttackRay();
+        CloseRangeFire1();
     }
     void LongRangeAtttckRay()
     {
@@ -102,6 +106,31 @@ public class PlayerAttackController : MonoBehaviour
     }
     void CloseRangeFire1()
     {
+        if (Input.GetMouseButtonDown(0) && !isRotating)
+        {
+            isRotating = true;
 
+            // カメラの方向を取得
+            Vector3 lookDir = Camera.main.transform.forward;
+
+            // 上下の回転は必要ないので、y軸の回転だけ0に設定
+            lookDir.y = 0;
+
+            // カメラの方向にオブジェクトを向ける
+            targetObject.transform.LookAt(targetObject.transform.position + lookDir, Vector3.up);
+
+            // オブジェクトを前に倒す
+            targetObject.transform.rotation = Quaternion.Euler(90, targetObject.transform.eulerAngles.y, 0);
+            // x軸を中心に-90度回転し、y軸の回転はそのまま
+        }
+
+        else if (Input.GetMouseButtonUp(0) && isRotating)
+        {
+            isRotating = false;
+
+            // オブジェクトを元に戻す
+            targetObject.transform.rotation = Quaternion.identity; // 回転をリセット
+        }
     }
+
 }
