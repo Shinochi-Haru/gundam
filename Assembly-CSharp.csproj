@@ -64,6 +64,7 @@
     <Compile Include="Assets\Script\EnemyHpController.cs" />
     <Compile Include="Assets\Script\EnemyMove.cs" />
     <Compile Include="Assets\Script\EnemyCallController.cs" />
+    <Compile Include="Assets\Script\Damager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

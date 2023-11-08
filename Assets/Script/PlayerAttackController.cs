@@ -103,7 +103,23 @@ public class PlayerAttackController : MonoBehaviour
 
         _line.SetPosition(0, origin);
         _line.SetPosition(1, origin + direction * _maxCloseDistance); // 適当な長さに設定
+
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, _maxCloseDistance))
+        {
+            // レイが何かに当たった場合の処理
+            Collider hitCollider = hit.collider;
+
+            // ダメージ判定を行う
+            EnemyHpController enemyHealth = hitCollider.GetComponent<EnemyHpController>();
+            if (enemyHealth != null)
+            {
+                enemyHealth.Damage(10);
+                Debug.Log("enemy damage");
+            }
+        }
     }
+
     void CloseRangeFire1()
     {
         if (Input.GetMouseButtonDown(0) && !isRotating)
